@@ -1,0 +1,93 @@
+---
+title: |
+| A Multi-Modal Parcellation of Human Cerebral Cortex
+| Journal Club
+author: Chris Hammill and Ben Darwin
+date: August 08, 2017
+output: beamer_document
+---
+
+Glasser et al. (2016)
+
+
+## OHBM 2017 Themes:
+
+- high-resolution, high-throughput, multi-site
+- multi-modal
+- connectivity (mostly functional)
+- parcellation
+- graph-theoretic methods
+- machine learning
+- reproducible research
+
+## Why this paper?
+- touches on most of these themes
+- cited by many papers (210 so far) and OHBM talks/posters
+- should we be moving in some of these directions?
+
+## Main Result
+
+- A new parcellation (atlas) of *the* human cortex that better summarizes
+functional and structural homogeneity.
+
+## Why parcellation?
+- human-comprehensible
+- increases statistical power (citation?)
+
+## HCP
+- Mandate
+- scanning methods
+- high-resolution, high-throughput, multi-site
+
+## Overview
+
+- multimodal acquisition and registration
+- multimodal surface gradients
+- 4 gradient modalities + literature -> hand-drawn boundaries
+- algorithmic boundary optimization
+- get a cortical parcellation
+- train a neural network to classify voxels based on multimodal information
+   - use to parcellate new subjects without repeating semi-automated approach
+   - identify regions where topology is not conserved (registration: preserves topology)
+- test statistical behaviour of original multi-modal parcellation approach and classifier
+
+## MSMAII
+
+- Alternatives?
+- What's newish?
+
+## Gradients
+
+- What is they?
+- How have we already used them for years?
+- How does a functional gradient work?
+- How does one compute a gradient on a surface,
+  their way but don't tell your math friends
+
+## Boundary Finding
+
+- You need a Van Essen
+- And an optimizer
+
+## Parcel Classification
+
+- Why can't we just register?
+- What is it
+- How does it work
+- How was it trained
+
+## Validation
+
+- Training and test sets
+- Performance measures
+- Much ado about nothing?
+
+## Philosophical Q's
+
+- Voxel vs region?
+- Too complex?
+- Principled preprocessing?
+- Automated approach to boundary finding?
+- Functionally defined parcels/registration?
+- Too much hype?
+
