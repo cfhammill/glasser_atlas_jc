@@ -1,13 +1,16 @@
 ---
 title: |
-| A Multi-Modal Parcellation of Human Cerebral Cortex
-| Journal Club
+  | A Multi-Modal Parcellation of Human Cerebral Cortex
+  | Glasser et al. (2016)
+  | Journal Club
 author: Chris Hammill and Ben Darwin
 date: August 08, 2017
-output: beamer_document
+output:
+  beamer_presentation:
+    fig_caption: false
+    includes:
+      in_header: "spacing.tex"
 ---
-
-Glasser et al. (2016)
 
 
 ## OHBM 2017 Themes:
@@ -23,51 +26,119 @@ Glasser et al. (2016)
 ## Why this paper?
 - touches on most of these themes
 - cited by many papers (210 so far) and OHBM talks/posters
-- should we be moving in some of these directions?
+- potential future directions?
 
 ## Main Result
 
-- A new parcellation (atlas) of *the* human cortex that better summarizes
+- A new parcellation (atlas) of the human cortex that better summarizes
 functional and structural homogeneity.
+- 180 parcels per hemisphere
+- 97 previously undescribed
+
+---
+
+\centering ![](emss-68870-f003.jpg)
 
 ## Why parcellation?
-- human-comprehensible
-- increases statistical power (citation?)
 
-## HCP
-- Mandate
-- scanning methods
-- high-resolution, high-throughput, multi-site
+- human-comprehensible
+- cross study comparison
+- increases statistical power **(citation?)**
+
+## Human Connectome Project (HCP)
+
+> "ambitious effort to map the neural pathways that underlie human brain function. The overarching purpose of the Project is to acquire and share data about the structural and functional connectivity of the human brain"
+
+- multi-site (Minnesota, Washington, Harvard)
+- high-throughput (for people)
+- high-resolution
 
 ## Overview
 
-- multimodal acquisition and registration
-- multimodal surface gradients
-- 4 gradient modalities + literature -> hand-drawn boundaries
-- algorithmic boundary optimization
-- get a cortical parcellation
-- train a neural network to classify voxels based on multimodal information
-   - use to parcellate new subjects without repeating semi-automated approach
-   - identify regions where topology is not conserved (registration: preserves topology)
-- test statistical behaviour of original multi-modal parcellation approach and classifier
+>- Acquire multi-modal data
+>- Perform multi-modal surface registration (MSM)
+>- Compute structural and connectivity surface gradients
+>- Use gradients and literature data to delineate boundaries
+>- Optimize boundary locations with **"algorithms"**
+>- Name new cortical parcels
+>- Train a neural network to classify voxels based on multi-modal information \
+\ \ - \small{parcellate new subjects without repeating semi-automated approach }\
+\ \ - \small{identify regions where topology is not conserved (registration: preserves topology)}
+>- Test statistical behaviour of original multi-modal parcellation approach and classifier
 
-## MSMAII
+## Preprocessing
 
-- Alternatives?
-- What's newish?
+- Cortex extraction
+- Generate myelin maps as T1w/T2w images
+- ICA denoise
+- Residualization of fMRI
+
+---
+
+\centering ![](flowchart.png)
+
+\color{red} \large This will be on the test
+
+
+## MSMAll
+
+- Non-linear registration on the sphere
+  (markov-random field discrete registration)
+- Traditionally depth information is the only modality used
+- Gentle sulcal alignment, followed by myelin/function connectivity alignment
+
+## What Gets Registered
+
+- Individual Myelin maps
+- Sulcal Depth
+- Individual connectome ICA components
+- Visuotopic connectivity maps
+
+## Gradients
+
+- What is they?
+
+---
+
+\centering ![](gradients.png)
+
+## Gradients
+
+- What is they?
+- How have we already used them for years?
 
 ## Gradients
 
 - What is they?
 - How have we already used them for years?
 - How does a functional gradient work?
-- How does one compute a gradient on a surface,
-  their way but don't tell your math friends
 
 ## Boundary Finding
 
-- You need a Van Essen
-- And an optimizer
+- Glasser and Van Essen manually delineated boundaries according
+to gradients and a literature survey
+- Manual boundaries were optimized within a search fringe to
+both smooth the boundaries and constrain them to high gradient regions
+
+## Philosophical Q's
+
+- Voxel vs region? <!-- why do we do analyses both ways, which do we trust if they conflict -->
+- Principled preprocessing? 
+- Too complex? 
+- Automated approach to boundary finding?
+- Functionally defined parcels/registration?
+
+---
+
+\centering ![](flowchart.png)
+
+## Philosophical Q's
+
+- Voxel vs region? <!-- why do we do analyses both ways, which do we trust if they conflict -->
+- Principled preprocessing? 
+- Too complex? 
+- Automated approach to boundary finding?
+- Functionally defined parcels/registration?
 
 ## Parcel Classification
 
@@ -80,14 +151,9 @@ functional and structural homogeneity.
 
 - Training and test sets
 - Performance measures
-- Much ado about nothing?
+- Was it enough?
 
-## Philosophical Q's
+## Final Thoughts
 
-- Voxel vs region?
-- Too complex?
-- Principled preprocessing?
-- Automated approach to boundary finding?
-- Functionally defined parcels/registration?
-- Too much hype?
-
+- Too much hype? Not enough?
+- Should we be doing this with mice?
