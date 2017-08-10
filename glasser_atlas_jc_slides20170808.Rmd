@@ -78,17 +78,20 @@ functional and structural homogeneity.
 
 \centering ![](flowchart.png)
 
+---
+
+\centering ![](flowchart.png)
+
+
 \color{red} \large This will be on the test
 
 
 ## MSMAll
 
 - Non-linear 2D registration on the sphere
-  (Markov Random Field discrete registration)
-- Traditionally depth information is the only modality used
-- Gentle sulcal alignment, followed by myelin/function connectivity (!!) alignment
-
-- TODO: this and the following slide are redundant
+(Markov Random Field discrete registration)
+- Uses multi-modal data to register cortical surfaces \
+(Traditionally depth information is the only modality used)
 
 ## What Gets Registered
 
