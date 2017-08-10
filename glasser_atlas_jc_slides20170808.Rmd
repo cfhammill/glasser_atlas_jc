@@ -42,21 +42,22 @@ functional and structural homogeneity.
 ## Why parcellation?
 
 - human-comprehensible
-- cross study comparison
+- cross-study comparison
 - increases statistical power **(citation?)**
 
 ## Human Connectome Project (HCP)
 
 > "ambitious effort to map the neural pathways that underlie human brain function. The overarching purpose of the Project is to acquire and share data about the structural and functional connectivity of the human brain"
 
-- multi-site (Minnesota, Washington, Harvard)
+- multi-site: WU/Minn/Oxford, 9+ other institutions
 - high-throughput (for people)
-- high-resolution
+- HCP protocol: T1w, T2w, DTI, b0 field maps, rfMRI, tfMRI, EEG, MEG
+- high-resolution (0.7mm iso. structural, 2mm functional)
 
 ## Overview
 
 >- Acquire multi-modal data
->- Perform multi-modal surface registration (MSM)
+>- Perform multi-modal surface registration (MSMAll)
 >- Compute structural and connectivity surface gradients
 >- Use gradients and literature data to delineate boundaries
 >- Optimize boundary locations with **"algorithms"**
@@ -68,7 +69,7 @@ functional and structural homogeneity.
 
 ## Preprocessing
 
-- Cortex extraction
+- Surface creation
 - Generate myelin maps as T1w/T2w images
 - ICA denoise
 - Residualization of fMRI
@@ -82,15 +83,17 @@ functional and structural homogeneity.
 
 ## MSMAll
 
-- Non-linear registration on the sphere
-  (markov-random field discrete registration)
+- Non-linear 2D registration on the sphere
+  (Markov Random Field discrete registration)
 - Traditionally depth information is the only modality used
-- Gentle sulcal alignment, followed by myelin/function connectivity alignment
+- Gentle sulcal alignment, followed by myelin/function connectivity (!!) alignment
+
+- TODO: this and the following slide are redundant
 
 ## What Gets Registered
 
-- Individual Myelin maps
-- Sulcal Depth
+- Sulcal Depth (initial 'gentle' registration)
+- Individual myelin maps
 - Individual connectome ICA components
 - Visuotopic connectivity maps
 
@@ -120,25 +123,31 @@ to gradients and a literature survey
 - Manual boundaries were optimized within a search fringe to
 both smooth the boundaries and constrain them to high gradient regions
 
-## Philosophical Q's
+## Questions so far \ldots
 
 - Voxel vs region? <!-- why do we do analyses both ways, which do we trust if they conflict -->
 - Principled preprocessing? 
 - Too complex? 
 - Automated approach to boundary finding?
 - Functionally defined parcels/registration?
+- 2D vs. 3D registration (or, why give up layers)?
+- Not enough modalities? (histology?)
+- Not meaningful parcels?  (Not necessarily 'consensus' boundaries, averaging, not clear where to put boundaries...)
 
 ---
 
 \centering ![](flowchart.png)
 
-## Philosophical Q's
+## Questions so far \ldots
 
 - Voxel vs region? <!-- why do we do analyses both ways, which do we trust if they conflict -->
-- Principled preprocessing? 
-- Too complex? 
+- Principled preprocessing?
+- Too complex?
 - Automated approach to boundary finding?
 - Functionally defined parcels/registration?
+- 2D vs. 3D registration (or, why give up layers)?
+- Not enough modalities? (histology, others?)
+- Not meaningful parcels?  (Not necessarily consensus boundaries, averaging, not clear where to put boundaries...)
 
 ## Parcel Classification
 
@@ -156,4 +165,4 @@ both smooth the boundaries and constrain them to high gradient regions
 ## Final Thoughts
 
 - Too much hype? Not enough?
-- Should we be doing this with mice?
+- Should we be doing this with mice?  How?
